@@ -46,7 +46,7 @@ The ESP32 controller collects temperature, humidity, and ammonia data from the s
         doc["humidity"] = humidity;
         doc["temperature"] = temperature;
         doc["mq3Value"] = mq3Value;
-
+        
         serializeJson(doc, mqtt_message, sizeof(mqtt_message));
         publishMessage("esp32_data", mqtt_message, true);
 6.2 Data Processing (Django):
