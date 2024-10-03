@@ -40,12 +40,12 @@ If ammonia levels exceed the threshold, the exhaust fan is turned on for ventila
 6. Data Flow and Communication
 6.1 Data Publishing (ESP32):
 The ESP32 controller collects temperature, humidity, and ammonia data from the sensors and publishes the data to an MQTT topic in JSON format.
-
-doc["deviceId"] = "ESP32";
-doc["siteId"] = "My Demo Lab";
-doc["humidity"] = humidity;
-doc["temperature"] = temperature;
-doc["mq3Value"] = mq3Value;
+##
+        doc["deviceId"] = "ESP32";
+        doc["siteId"] = "My Demo Lab";
+        doc["humidity"] = humidity;
+        doc["temperature"] = temperature;
+        doc["mq3Value"] = mq3Value;
 
 serializeJson(doc, mqtt_message, sizeof(mqtt_message));
 publishMessage("esp32_data", mqtt_message, true);
