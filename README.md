@@ -72,3 +72,18 @@ class SensorData(models.Model):
     gas_sensor = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
 ```
+    
+###6.3 Threshold Setting:
+Farmers can set the desired thresholds for temperature, humidity, and ammonia levels via a web form. These values are published to MQTT and processed by the ESP32.
+
+```python
+payload = json.dumps({
+    'deviceId': threshold_data.device.tag,
+    'temperature_max': threshold_data.highest_temperature_level,
+    'temperature_min': threshold_data.lowest_temperature_level,
+    'humidity_max': threshold_data.highest_humidity_level,
+    'humidity_min': threshold_data.lowest_humidity_level,
+    'ammonia_max': threshold_data.highest_ammonia_level,
+})
+client.publish(MQTT_THRESHOLD_TOPIC, payload)
+```
