@@ -52,27 +52,26 @@ The ESP32 controller collects temperature, humidity, and ammonia data from the s
 6.2 Data Processing (Django):
 A Python script running on the Django server subscribes to the MQTT topic and stores the sensor data in a database.
 
-python
-Copy code
-class SensorData(models.Model):
-    device = models.ForeignKey(DeviceData, on_delete=models.CASCADE)
-    temperature = models.FloatField()
-    humidity = models.FloatField()
-    gas_sensor = models.FloatField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+##
+        class SensorData(models.Model):
+            device = models.ForeignKey(DeviceData, on_delete=models.CASCADE)
+            temperature = models.FloatField()
+            humidity = models.FloatField()
+            gas_sensor = models.FloatField()
+            timestamp = models.DateTimeField(auto_now_add=True)
 6.3 Threshold Setting:
 Farmers can set the desired thresholds for temperature, humidity, and ammonia levels via a web form. These values are published to MQTT and processed by the ESP32.
 
-
-payload = json.dumps({
-    'deviceId': threshold_data.device.tag,
-    'temperature_max': threshold_data.highest_temperature_level,
-    'temperature_min': threshold_data.lowest_temperature_level,
-    'humidity_max': threshold_data.highest_humidity_level,
-    'humidity_min': threshold_data.lowest_humidity_level,
-    'ammonia_max': threshold_data.highest_ammonia_level,
-})
-client.publish(MQTT_THRESHOLD_TOPIC, payload)
+##
+        payload = json.dumps({
+            'deviceId': threshold_data.device.tag,
+            'temperature_max': threshold_data.highest_temperature_level,
+            'temperature_min': threshold_data.lowest_temperature_level,
+            'humidity_max': threshold_data.highest_humidity_level,
+            'humidity_min': threshold_data.lowest_humidity_level,
+            'ammonia_max': threshold_data.highest_ammonia_level,
+        })
+        client.publish(MQTT_THRESHOLD_TOPIC, payload)
 7. User Interaction
 7.1 Web Interface:
 Users interact with the system through a Django-powered web interface. They can:
