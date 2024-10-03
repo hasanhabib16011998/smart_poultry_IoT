@@ -41,8 +41,8 @@ If ammonia levels exceed the threshold, the exhaust fan is turned on for ventila
 6.1 Data Publishing (ESP32):
 The ESP32 controller collects temperature, humidity, and ammonia data from the sensors and publishes the data to an MQTT topic in JSON format.
 
-cpp
-Copy code
+##
+<tab><tab>code/text here
 doc["deviceId"] = "ESP32";
 doc["siteId"] = "My Demo Lab";
 doc["humidity"] = humidity;
@@ -65,8 +65,7 @@ class SensorData(models.Model):
 6.3 Threshold Setting:
 Farmers can set the desired thresholds for temperature, humidity, and ammonia levels via a web form. These values are published to MQTT and processed by the ESP32.
 
-python
-Copy code
+
 payload = json.dumps({
     'deviceId': threshold_data.device.tag,
     'temperature_max': threshold_data.highest_temperature_level,
