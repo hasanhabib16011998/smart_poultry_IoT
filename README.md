@@ -73,7 +73,7 @@ class SensorData(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 ```
     
-###6.3 Threshold Setting:
+### 6.3 Threshold Setting:
 Farmers can set the desired thresholds for temperature, humidity, and ammonia levels via a web form. These values are published to MQTT and processed by the ESP32.
 
 ```python
