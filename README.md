@@ -60,3 +60,14 @@ doc["mq3Value"] = mq3Value;
 
 serializeJson(doc, mqtt_message, sizeof(mqtt_message));
 publishMessage("esp32_data", mqtt_message, true);
+
+### 6.2 Data Processing (Django):
+A Python script running on the Django server subscribes to the MQTT topic and stores the sensor data in a database.
+
+```python
+class SensorData(models.Model):
+    device = models.ForeignKey(DeviceData, on_delete=models.CASCADE)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    gas_sensor = models.FloatField()
+    timestamp = models.DateTimeField(auto_now_add=True)
