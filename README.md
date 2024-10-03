@@ -1,19 +1,19 @@
 Smart Poultry Farm IoT Project Documentation
-1. Introduction
+##1. Introduction
 The Smart Poultry Farm IoT Project aims to automate climate control in poultry farms to ensure a healthy and optimal environment for the birds. Using a combination of temperature, humidity, and ammonia sensors, the system automatically adjusts the farm's conditions. The Django server enables farmers to monitor and control these parameters remotely.
 
-2. Problem Statement
+##2. Problem Statement
 Maintaining a healthy climate inside poultry farms is critical for bird health and productivity. Variations in temperature, humidity, and ammonia levels can lead to disease and poor growth. This system addresses these challenges by providing real-time control and monitoring of environmental conditions, ensuring that optimal thresholds are maintained without constant manual intervention.
 
-3. System Overview
+##3. System Overview
 The system comprises hardware and software components that work together to monitor and control the environment of a poultry farm. Farmers interact with the system through a web interface where they can monitor live data and set thresholds.
 
 Main Features:
 Temperature control through fans and heaters.
 Humidity control through humidifiers and exhaust fans.
 Ammonia level monitoring and control through exhaust fans.
-4. System Architecture
-4.1 Hardware Components:
+##4. System Architecture
+###4.1 Hardware Components:
 ESP32 Controller: The central unit that reads sensor data and controls devices.
 DHT22 Sensor: Measures temperature and humidity.
 MQ3 Gas Sensor: Monitors ammonia levels in the air.
