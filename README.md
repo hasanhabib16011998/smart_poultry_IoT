@@ -41,8 +41,6 @@ If ammonia levels exceed the threshold, the exhaust fan is turned on for ventila
 6.1 Data Publishing (ESP32):
 The ESP32 controller collects temperature, humidity, and ammonia data from the sensors and publishes the data to an MQTT topic in JSON format.
 
-##
-<tab><tab>code/text here
 doc["deviceId"] = "ESP32";
 doc["siteId"] = "My Demo Lab";
 doc["humidity"] = humidity;
